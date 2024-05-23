@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Bike Trail Tirol Beispiel</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+        integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+        integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+
+    <!-- Leaflet Providers -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js"
+        integrity="sha512-5EYsvqNbFZ8HX60keFbe56Wr0Mq5J1RrA0KdVcfGDhnjnzIRsDrT/S3cxdzpVN2NGxAB9omgqnlh4/06TvWCMw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Leaflet FullScreen -->
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css'
+        rel='stylesheet' />
+
+    <!-- eigene Stile und Hauptskript -->
+    <link rel="stylesheet" href="main.css">
+    <script defer src="main.js"></script>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h2><i class="fa-solid fa-person-biking"></i> Bike Trail Tirol Beispiel</h2>
+            <nav>
+                <i class="fab fa-github"></i> <a href="https://github.com/webmapping/biketirol">Github</a>
+            </nav>
+        </header>
+        <article>
+            <a href="https://www.tirol.at/reisefuehrer/sport/radfahren/biketouren/a-bike-trail-tirol-windegg-matrei">
+                <h1>Etappe
+                    21: Windegg - Matrei</h1>
+            </a>
+            <p>Windegg, Ausgangspunkt und gleichzeit höchster Punkt dieser Tour, führt zur Gänze auf Asphaltstraßen bis
+                nach Matrei am
+                Brenner. Während der 27 Kilometer langen Tour genießen Sie nicht nur einen herrlichen Blick auf
+                Innsbruck, sondern
+                passieren auch die malerische Gemeinde Rinn mit ihrer bekannten Kirche, sowie die Orte Sistrans, Lans
+                und Patsch.</p>
+
+            <div class="summary">
+                <div class="summary-badge">
+                    <i class="fas fa-walking"></i> Länge 27km
+                </div>
+                <div class="summary-badge">
+                    <i class="fas fa-clock"></i> Fahrzeit 3h
+                </div>
+                <div class="summary-badge">
+                    <i class="fas fa-sort-amount-up-alt"></i> bergauf 520m
+                </div>
+                <div class="summary-badge">
+                    <i class="fas fa-mountain"></i> höchster Punkt 1.190m
+                </div>
+                <div class="summary-badge">
+                    <i class="fas fa-sort-amount-down-alt"></i> bergab 720m
+                </div>
+                <div class="summary-badge">
+                    <i class="fa-solid fa-heart-pulse"></i> Schwierigkeit: mittelschwierig
+                </div>
+                <a href="https://www.tirol.at/action/download?id=address_738&downloadId=513">
+                    <div class="summary-badge">
+                        <i class="fas fa-download"></i> Download GPX
+                    </div>
+                </a>
+
+            </div>
+
+            <div id="map"></div>
+
+            <h3>Streckenbeschreibung</h3>
+            <p>Vom Gasthaus Windegg geht es über die Asphaltstraße hinunter nach Tulfes. Im Ort zweigt man links auf die
+                Straße nach
+                Rinn/Sistrans ab. Leicht auf und ab verläuft die Strecke durch Wiesen und Felder nach Rinn bis zum
+                Kreisverkehr vor
+                Sistrans. Hier zweigt man halblinks ab und erreicht nach einem weiteren Kilometer das Dorf (1 Stunde ab
+                Windegg). Kurz
+                vor der Kirche beim Dorfcafe geht es rechts ab nach Lans, wo man sich im Dorf an den Wegweiser Igls hält
+                und 70 Meter
+                danach nach Patsch abzweigt. Nun folgt ein Anstieg bis zur Olympia Bob- und Rodelbahn. Fast eben geht es
+                weiter bis zur
+                Abzweigung nach Innsbruck. Hier fährt man geradeaus weiter, vorbei am Grünwalderhof und gleich danach
+                links nach Patsch.
+                Auf dieser Straße radelt man bis ins Etappenziel. Auf den Westhängen des Wipptals fährt man durch die
+                Streusiedlung
+                Ellbögen zwischen Wiesen und Wäldchen, bis man zuerst Pfons und kurz danach Matrei erreicht (2 Stunden
+                ab Sistrans).</p>
+
+        </article>
+        <footer>
+            <strong>Datenquellen:</strong>
+            <nav>
+                <a
+                    href="https://www.tirol.at/reisefuehrer/sport/radfahren/biketouren/a-bike-trail-tirol-windegg-matrei">Bike
+                    Trail Tirol
+                    (Online Reiseführer Tirol)</a>
+                |
+                <a href="https://www.data.gv.at/katalog/de/dataset/land-tirol_elektronischekartetirol">eGrundkarte
+                    Tirol</a>
+            </nav>
+        </footer>
+    </main>
+</body>
+
+</html>
